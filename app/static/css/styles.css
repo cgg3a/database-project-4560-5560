@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'AtariFont';
+    src: url('../fonts/Atarian/SF Atarian System.ttf') format('truetype');
+    font-weight: normal;
+    
+}
+body {
+    background-color: #f6f1e3;
+    color: #2a0c54;
+    font-family: 'AtariFont', Verdana;
+    font-size: 1.5rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Blurry background image container */
+.background-image {
+    position: fixed; /* Keep it fixed to the viewport */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("../img/webpagebackground.png");
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the image */
+    filter: blur(2px); /* Adjust the blur amount as needed */
+    z-index: -1; /* Send it behind other content */
+}
+
+h1, h2, h3, p, a {
+    color: #f6f1e3;
+}
+
+.navbar .navbar-brand {
+    color: #2a0c54;
+    font-size: 1.5rem !important;
+}
+
+.bg-beige {
+    background-color: #f6f1e3; /* Your beige color */
+}
+
+.text-purple {
+    color: #2a0c54; /* Your purple color */
+}

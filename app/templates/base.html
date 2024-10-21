@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Basic Page{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <!-- Background Image-->
+    <div class="background-image"></div>
+
+    <!-- Navigation Bar -->
+    {% if show_navbar %}
+    <nav class="navbar navbar-expand-lg bg-beige">
+        <a class="navbar-brand" href="{{ url_for('dashboard') }}">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" width="50" height="50" class="d-inline-block align-text-center">
+            Game Buddy
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('dashboard') }}">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('profile') }}">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('games') }}">Games</a>
+                </li>
+            </ul>
+            <!-- Search Form -->
+            <form class="d-flex ms-auto p-1" action="{{ url_for('search') }}" method="GET">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="query">
+                <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    {% endif %}
+
+    <!-- Main Content Block -->
+    <div class="container flex-fill">
+        {% block content %}
+        <!-- Page-specific content goes here -->
+        {% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3 bg-beige">
+        <div class="container">
+            <span >© 2024 GameBuddy</span>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+</body>
+</html>

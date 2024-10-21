@@ -8,6 +8,29 @@ In an increasingly digital world, the ability to share achievements as well as o
 - Jordan
 - Remon
 
+## How to Run
+
+### 1. Activate your Virtual Environment
+
+Before starting the Flask server, ensure that you are working inside your virtual environment where Flask is installed.
+
+#### For Windows:
+```.venv\Scripts\activate```
+
+#### For macOS/Linux
+```source .venv/bin/activate```
+
+### 2. Run the Flask Server
+```python run.py``` or ```python3 run.py```
+
+### 3. Head to the URL given in your terminal
+
+Usually, it is ```http://127.0.0.1:5000/```
+
+### 4. Stop the server
+
+When you're done running it, just press **CTRL+C** in your terminal.
+
 ## Project Structure
 
 ```project/
@@ -20,18 +43,20 @@ In an increasingly digital world, the ability to share achievements as well as o
 │   ├── static/               # Static files (CSS, JS, images)
 │   │   ├── css/
 │   │   ├── js/
+│   │   ├── fonts/
 │   │   └── img/
 │   └── templates/            # HTML templates (Bootstrap integrated)
 │       ├── base.html         # Base layout template
+│       ├── login.html      # User login page
 │       ├── profile.html      # User profile page
 │       └── achievements.html # Achievements display page
 │
 ├── migrations/               # Database migration files (Flask-Migrate)
 │
-├── venv/                     # Virtual environment
+├── .venv/                     # Virtual environment
 │
 ├── config.py                 # Configuration settings
 │
-├── app.py                    # Application entry point
+├── requirements.txt                # Lists all needed pips
 │
 └── run.py                    # Script to run the application```

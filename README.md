@@ -59,4 +59,5 @@ When you're done running it, just press **CTRL+C** in your terminal.
 │
 ├── requirements.txt                # Lists all needed pips
 │
-└── run.py                    # Script to run the application```
+└── run.py                    # Script to run the application
+```

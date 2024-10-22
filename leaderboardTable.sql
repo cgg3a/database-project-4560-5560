@@ -1,7 +1,6 @@
--- Active: 1729467801369@@127.0.0.1@3306
-CREATE DATABASE leaderboard
+CREATE DATABASE leaderboard;
 
-USE leaderboard
+USE leaderboard;
 
 CREATE TABLE games (
     GameID INT NOT NULL,
@@ -26,7 +25,7 @@ CREATE TABLE categories (
     Description VARCHAR(100),
     Type VARCHAR(15),
     PRIMARY KEY (CategoryID, GameID, VersionID),
-    FOREIGN KEY (GameID, VersionID) REFERENCES games (GameID, VersionID)
+    FOREIGN KEY (GameID, VersionID) REFERENCES versions (GameID, VersionID)
 );
 
 CREATE TABLE users (
@@ -57,5 +56,6 @@ CREATE TABLE scores (
     CategoryID INT NOT NULL,
     Score DOUBLE,
     PRIMARY KEY (UserID, CategoryID),
-    FOREIGN KEY (CategoryID) REFERENCES categories (CategoryID)
+    FOREIGN KEY (CategoryID) REFERENCES categories (CategoryID),
+    FOREIGN KEY (UserID) REFERENCES users(UserID)
 );

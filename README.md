@@ -10,18 +10,23 @@ In an increasingly digital world, the ability to share achievements as well as o
 
 ## How to Run
 
-### 1. Activate your Virtual Environment
+Before starting the Flask server, we must ensure that we are working inside our virtual environment where Flask is installed.
 
-Before starting the Flask server, ensure that you are working inside your virtual environment where Flask is installed.
+### 1. Install pipenv if you haven't
 
-#### For Windows:
-```.venv\bin\activate```
+```pipe install pipenv```
 
-#### For macOS/Linux
-```source .venv/bin/activate```
+### 2. Have pipenv install a virtual environment for you
 
-### 2. Run the Flask Server
-```python run.py``` or ```python3 run.py```
+```pipenv install```
+
+### 3. Head into the virtual environment
+
+``` pipenv shell```
+
+### 4. Start the Flask server
+
+```python run.py```
 
 ### 3. Head to the URL given in your terminal
 
@@ -29,7 +34,7 @@ Usually, it is ```http://127.0.0.1:5000/```
 
 ### 4. Stop the server
 
-When you're done running it, just press **CTRL+C** in your terminal.
+When you're done running it, just type **exit** in your terminal.
 
 ## Project Structure
 
@@ -53,7 +58,9 @@ When you're done running it, just press **CTRL+C** in your terminal.
 │
 ├── migrations/               # Database migration files (Flask-Migrate)
 │
-├── .venv/                     # Virtual environment
+├── Pipfile                     # Virtual environment requirements
+│
+├── Pipfile.lock                     # Virtual environment hashes
 │
 ├── config.py                 # Configuration settings
 │

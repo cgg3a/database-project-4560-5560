@@ -14,7 +14,7 @@ Before starting the Flask server, we must ensure that we are working inside our 
 
 ### 1. Install pipenv if you haven't
 
-```pipe install pipenv```
+```pip install pipenv```
 
 ### 2. Have pipenv install a virtual environment for you
 

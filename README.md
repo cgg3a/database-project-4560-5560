@@ -15,7 +15,7 @@ In an increasingly digital world, the ability to share achievements as well as o
 Before starting the Flask server, ensure that you are working inside your virtual environment where Flask is installed.
 
 #### For Windows:
-```.venv\Scripts\activate```
+```.venv\bin\activate```
 
 #### For macOS/Linux
 ```source .venv/bin/activate```

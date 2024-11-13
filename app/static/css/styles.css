@@ -43,3 +43,8 @@ h1, h2, h3, p, a {
 .text-purple {
     color: #2a0c54; /* Your purple color */
 }
+
+.my-button {
+    background-color: #2a0c54;
+    border-color: #2a0c54;
+}

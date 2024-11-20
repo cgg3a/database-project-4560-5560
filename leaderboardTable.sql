@@ -29,7 +29,7 @@ CREATE TABLE categories (
 );
 
 CREATE TABLE users (
-    UserID INT NOT NULL,
+    UserID INT NOT NULL AUTO_INCREMENT,
     Username VARCHAR(20),
     Password VARCHAR(255),
     PRIMARY KEY (UserID)
@@ -59,3 +59,5 @@ CREATE TABLE scores (
     FOREIGN KEY (CategoryID) REFERENCES categories (CategoryID),
     FOREIGN KEY (UserID) REFERENCES users(UserID)
 );
+
+INSERT INTO users (UserID,Username,Password) VALUES (12345, 'Jordan', 'password');

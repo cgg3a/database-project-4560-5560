@@ -31,7 +31,7 @@ CREATE TABLE categories (
 CREATE TABLE users (
     UserID INT NOT NULL,
     Username VARCHAR(20),
-    Password VARCHAR(20),
+    Password VARCHAR(255),
     PRIMARY KEY (UserID)
 );
 

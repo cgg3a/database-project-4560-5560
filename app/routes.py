@@ -41,7 +41,7 @@ def profile():
 @app.route('/dashboard')
 @login_required
 def dashboard():
-    return render_template('dashboard.html')
+    return render_template('dashboard.html', show_navbar=True)
 
 @app.route('/settings')
 @login_required
@@ -56,7 +56,7 @@ def games():
 @app.route('/search')
 @login_required
 def search():
-    return render_template('search.html')
+    return render_template('searchresults.html', show_navbar=True)
 
 @app.route('/registration')
 def registration():

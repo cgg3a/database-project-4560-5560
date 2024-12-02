@@ -36,8 +36,20 @@
             </ul>
             <!-- Search Form -->
             <form class="d-flex ms-auto p-1" action="{{ url_for('search') }}" method="GET">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="query">
-                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                <div class="input-group">
+                    <!-- Search input -->
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="query">
+                    
+                    <!-- Dropdown menu -->
+                    <select class="form-select mr-2" name="search_type" aria-label="Search type">
+                      <option value="friends" selected>Users</option>
+                      <option value="games">Games</option>
+                    </select>
+                </div>
+                <button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <form action="{{ url_for('logout') }}">
+                <button type="submit" class="btn btn-danger">Logout</button>
             </form>
         </div>
     </nav>

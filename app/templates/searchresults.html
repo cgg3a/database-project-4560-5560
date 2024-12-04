@@ -3,7 +3,7 @@
 {% block title %}Search Results{% endblock %}
 
 {% block content %}
-<div class="container">
+<!--<div class="container">
 
   <div class="row justify-content-center mt-3">
     <div class="col-md-8">
@@ -69,5 +69,36 @@
         </div>
       </div>
     </div>
-  </div>
+  </div>-->
+
+  <h1 class="mt-4">Search Results</h1>
+
+  {% if error %}
+      <div class="alert alert-danger">{{ error }}</div>
+  {% elif games %}
+      <div class="list-group mt-4">
+          {% for game in games %}
+              <div class="list-group-item">
+                  <h4>{{ game.name }}</h4>
+                  <p style="color:black">Release Date: {{ game.released }}</p>
+                  {% if game.rating and game.rating != 0 %}
+                    <p style="color: black">Rating: {{ game.rating }}</p>
+                  {% else %}
+                    <p style="color: black">Rating: No current rating</p>
+                  {% endif %}
+                  <p style="color: black">Platforms:</p>
+                  <ul>
+                    {% for platform in game.platforms %}
+                      <li>{{ platform }}</li>
+                    {% endfor %}
+                  </ul>
+                  <p style="color: black">ESRB Rating: {{ game.esrb_rating }}</p>
+                  <img src="{{ game.background_image }}" alt="{{ game.name }}" class="img-fluid" style="max-height: 200px;">
+              </div>
+          {% endfor %}
+      </div>
+  {% else %}
+      <p>No results found for your search.</p>
+  {% endif %}
+
 {% endblock %}

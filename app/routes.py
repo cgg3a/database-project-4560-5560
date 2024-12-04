@@ -3,6 +3,12 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 from app import app, db
 from app.models import User
 from werkzeug.security import generate_password_hash, check_password_hash #Module to hash passwords
+import os
+from dotenv import load_dotenv
+import requests
+
+load_dotenv()
+api_key = os.getenv("API_KEY")
 
 # Initialize the LoginManager
 login_manager = LoginManager()
@@ -53,10 +59,51 @@ def settings():
 def games():
     return render_template('games.html')
 
-@app.route('/search')
+'''@app.route('/search')
 @login_required
 def search():
-    return render_template('searchresults.html', show_navbar=True)
+    return render_template('searchresults.html', show_navbar=True)'''
+
+@app.route('/search', methods=['GET'])
+@login_required
+def search():
+    query = request.args.get('query')  # Get the search query from the form
+    search_type = request.args.get('search_type')  # Get the dropdown value
+    
+    if search_type == 'games' and query:
+        base_url = "https://api.rawg.io/api/games"
+        params = {
+            "key": api_key,
+            "search": query  # Use the search query from the user input
+        }
+        
+        response = requests.get(base_url, params=params)
+        if response.status_code == 200:
+            games = response.json().get('results', [])  # Extract the results
+
+            if games:
+                filtered_data_list = []
+                for game in games[:1]:
+                    platforms = [platform_info["platform"]["name"] for platform_info in game.get("platforms", []) if platform_info.get("platform")]
+                    filtered_data = {
+                    "name": game.get("name"),
+                    "released": game.get("released"),
+                    "rating": game.get("rating"),
+                    #"playtime": game.get("playtime"),
+                    "background_image": game.get("background_image"),
+                    "esrb_rating": game.get("esrb_rating", {}).get("name"), 
+                    #"esrb_rating": game.get("esrb_rating")
+                    "platforms": platforms
+                    }
+                    filtered_data_list.append(filtered_data)
+                return render_template('searchresults.html', games=filtered_data_list, show_navbar=True)
+            else:
+                error_message = "Could not retrieve game data. Please try again."
+                #return render_template('searchresults.html', error=error_message, show_navbar=True)
+                return render_template('dashboard.html')
+    else:
+        # Handle other search types (like 'friends')
+        return redirect(url_for('dashboard'))
 
 @app.route('/registration')
 def registration():

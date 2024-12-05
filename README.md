@@ -11,6 +11,8 @@ In an increasingly digital world, the ability to share achievements as well as o
 ## How to Run
 
 Before starting the Flask server, we must ensure that we are working inside our virtual environment where Flask is installed.
+Also, make sure you have all the dependencies in requirements.txt.
+If any are missing they can be installed with pip.
 
 ### 1. Install pipenv if you haven't
 
@@ -24,15 +26,19 @@ Before starting the Flask server, we must ensure that we are working inside our 
 
 ``` pipenv shell```
 
-### 4. Start the Flask server
+### 4. Configure your SQL password
+
+With the SQL server running, change the file config.py to use your own SQL password.
+
+### 5. Start the Flask server
 
 ```python run.py```
 
-### 3. Head to the URL given in your terminal
+### 6. Head to the URL given in your terminal
 
 Usually, it is ```http://127.0.0.1:5000/```
 
-### 4. Stop the server
+### 7. Stop the server
 
 When you're done running it, just type **exit** in your terminal.
 
